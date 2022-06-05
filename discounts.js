@@ -17,21 +17,75 @@ const coupons = [
     "randall3"
 ];
 
-function calculateDiscountPrice(originalPrice, discount){
+const coupons2 = [
+    {
+        name: "randall1",
+        discount: 15,
+    },
+    {
+        name: "randall2",
+        discount: 30,
+    },
+    {
+        name: "randall3",
+        discount: 25,
+    },
+];
+
+function calculateDiscountPrice(originalPrice, discount) {
     const percentageDiscountPrice = 100 - discount;
-    const discountPrice = (originalPrice * percentageDiscountPrice)/100;
+    const discountPrice = (originalPrice * percentageDiscountPrice) / 100;
 
     return discountPrice;
 }
 
-function OnClickBtnPriceDiscount(){
+function OnClickBtnPriceDiscount() {
     const inputPrice = document.getElementById("inputPrice");
     const priceValue = inputPrice.value;
 
-    const inputDiscount = document.getElementById("inputDiscount");
-    const discountValue = inputDiscount.value;
+    const inputCoupon = document.getElementById("inputCoupon");
+    const couponValue = inputCoupon.value;
 
-    const discountPrice = calculateDiscountPrice(priceValue, discountValue);
-    const pResult = document.getElementById("pResult");
-    pResult.innerText = "Discount price: $" + discountPrice;
+    /*
+    let discount;
+
+    switch (couponValue) {
+        case coupons[0]:
+            discount = 15;
+            break;
+        case coupons[1]:
+            discount = 20;
+            break;
+        case coupons[2]:
+            discount = 25;
+            break;
+    }
+
+   if(!coupons.includes(couponValue)){
+       alert(couponValue + " coupon is not valid");
+   } else if(couponValue === "randall1"){
+       discount = 15;
+   }  else if(couponValue === "randall2"){
+    discount = 20;
+    } else if(couponValue === "randall3"){
+        discount = 20;
+    }
+    */
+
+    const isCouponValueValid = function (coupon) {
+        return coupon.name === couponValue;
+    };
+    
+    const userCoupon = coupons2.find(isCouponValueValid);
+    
+    if (!userCoupon) {
+        alert(couponValue + " coupon is not valid");
+    } else {
+        const discount = userCoupon.discount;
+        const discountPrice = calculateDiscountPrice(priceValue, discount);
+        const pResult = document.getElementById("pResult");
+        pResult.innerText = "Discount price: $" + discountPrice;
+    }
+
+
 }

@@ -10,3 +10,8 @@
 - Step 2: javascript formulas implementation
 - Step 3: create functions
 - Step 4: integrate js with html
+### Workshop 3: Average, median and mode
+- Step 1: define formulas
+- Step 2: javascript formulas implementation
+- Step 3: create functions
+- Step 4: integrate js with html

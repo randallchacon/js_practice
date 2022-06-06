@@ -1,14 +1,4 @@
-const salaryCR = costarica.map(
-    function(person){
-        return person.salary;
-});
-
-const salaryColSorted = salaryCR.sort(
-    function(a, b){
-        return a - b;
-    }
-);
-
+//HELPERS *******************************
 function isPair(n){
     return (n%2 === 0);
 };
@@ -22,7 +12,7 @@ function calculateMedian(list1){
     const averageList = sumList / list1.length;
     return averageList;
 }
-
+//MEDIAN CALCULATOR ************************
 function salaryMediun(list){
     const halfList = parseInt(list.length/2);
 
@@ -37,6 +27,30 @@ function salaryMediun(list){
     }
 }
 
+//GENERAL MEDIAN *****************************
+const salaryCR = costarica.map(
+    function(person){
+        return person.salary;
+});
+
+const salaryCRSorted = salaryCR.sort(
+    function(a, b){
+        return a - b;
+    }
+);
+
+const generalMediunCR = salaryMediun(salaryCRSorted);
+
+//MEDIAN TOP 10% ****************************
+const spliceStart = (salaryCRSorted.length*90)/100;
+const spliceCount = salaryCRSorted.length - spliceStart;
+const salaryCRTop10 = salaryCRSorted.splice(
+    spliceStart,
+    spliceCount
+);
+const MediunCRTop10 = salaryMediun(salaryCRTop10);
+
 console.log(
-  salaryMediun(salaryColSorted)
+  generalMediunCR,
+  MediunCRTop10
 );

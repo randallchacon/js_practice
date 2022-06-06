@@ -14,4 +14,7 @@
 - Step 1: define formulas
 - Step 2: javascript formulas implementation
 - Step 3: create functions
-- Step 4: integrate js with html
+### Workshop 4: Salary analysis
+- Step 1: define formulas
+- Step 2: javascript formulas implementation
+- Step 3: create functions
